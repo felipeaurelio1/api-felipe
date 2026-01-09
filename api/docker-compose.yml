@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  api-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-bud-1
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+    networks:
+      - api-network
+
+  api-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-bud-2
+    ports:
+      - "8002:8000"
+    restart: unless-stopped
+    networks:
+      - api-network
+
+  api-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-bud-3
+    ports:
+      - "8003:8000"
+    restart: unless-stopped
+    networks:
+      - api-network
+
+networks:
+  api-network:
+    driver: bridge
