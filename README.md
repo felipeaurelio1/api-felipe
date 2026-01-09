@@ -16,10 +16,15 @@ api-felipe/
 ├── api/
 │   ├── bud.py              # Aplicação FastAPI
 │   ├── requirements.txt    # Dependências Python
-│   ├── Dockerfile          # Imagem Docker
+│   ├── Dockerfile          # Imagem Docker (para deploy local)
 │   ├── docker-compose.yml  # Configuração multi-container
 │   └── deploy.sh          # Script de deploy
+├── Dockerfile              # Dockerfile na raiz (para Railway)
+├── railway.json            # Configuração Railway (JSON)
+├── railway.toml            # Configuração Railway (TOML)
 ├── DEPLOY.md              # Guia completo de deploy
+├── RAILWAY.md             # Guia de deploy no Railway
+├── GITHUB.md              # Guia para GitHub
 └── README.md              # Este arquivo
 ```
 
@@ -67,9 +72,22 @@ Use o script `deploy.sh` para facilitar o gerenciamento:
 ./deploy.sh update   # Atualizar após mudanças
 ```
 
+## 🚂 Deploy no Railway
+
+Este projeto está configurado para deploy automático no Railway via GitHub.
+
+**Passos rápidos:**
+1. Faça push do código para o GitHub
+2. Acesse [Railway](https://railway.app) e conecte seu repositório
+3. O Railway fará deploy automático!
+
+Para instruções detalhadas, consulte [RAILWAY.md](./RAILWAY.md).
+
 ## 📚 Documentação
 
-Para instruções detalhadas de deploy no servidor, consulte [DEPLOY.md](./DEPLOY.md).
+- [DEPLOY.md](./DEPLOY.md) - Guia completo de deploy em servidor próprio
+- [RAILWAY.md](./RAILWAY.md) - Guia de deploy no Railway
+- [GITHUB.md](./GITHUB.md) - Como subir código para o GitHub
 
 ## 📄 Licença
 
