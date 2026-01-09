@@ -15,6 +15,12 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 # Copia o código da aplicação
 COPY api/bud.py .
 
+# Copia o script de inicialização
+COPY start.sh .
+
+# Torna o script executável
+RUN chmod +x start.sh
+
 # Cria um usuário não-root para segurança
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
@@ -23,6 +29,6 @@ USER appuser
 # EXPOSE aceita apenas números, mas Railway usa variável PORT dinamicamente
 EXPOSE 8000
 
-# Comando para iniciar a aplicação FastAPI
-# Railway define a variável PORT automaticamente, usa 8000 como fallback
-CMD ["sh", "-c", "uvicorn bud:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Comando para iniciar a aplicação FastAPI usando o script
+# O script garante que a variável PORT seja expandida corretamente
+CMD ["./start.sh"]
