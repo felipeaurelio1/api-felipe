@@ -17,3 +17,7 @@ def about():
 @app.get("/status")
 def status():
     return "200 - API Funcionando"
+
+@app.get("/isabela")
+def status():
+    return "amor da minha vida"
