@@ -21,7 +21,3 @@ def status():
 @app.get("/isabela")
 def status():
     return "amor da minha vida"
-
-@app.get("/2")
-def status():
-    return "200 - API Funcionando"
